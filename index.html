@@ -520,6 +520,17 @@ const observer = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
 },{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
+  // Fix: make play buttons open YouTube links
+document.querySelectorAll('.video-card').forEach(card => {
+  const link = card.querySelector('a[href*="youtube.com/watch"]');
+  const playBtn = card.querySelector('.play-btn');
+  if (link && playBtn) {
+    playBtn.style.cursor = 'pointer';
+    playBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      window.open(link.href, '_blank');
+    });
+  }
+});</script>
 </body>
 </html>
