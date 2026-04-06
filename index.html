@@ -442,11 +442,7 @@ span.de{display:none}
       <span class="en">For bookings, press enquiries, or any other matter, please reach out below or contact Ilona's agent at opera4u.</span>
       <span class="de">Für Buchungen, Presseanfragen oder andere Anliegen kontaktieren Sie uns unten oder wenden Sie sich an Ilonas Agentur bei opera4u.</span>
     </p>
-    <form
-  class="contact-form reveal"
-  action="https://formspree.io/f/mreornvn"
-  method="POST"
->
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
   <div class="form-row">
     <div class="form-field">
       <label><span class="en">Your Name</span><span class="de">Ihr Name</span></label>
@@ -468,6 +464,10 @@ span.de{display:none}
   <button type="submit" class="form-submit">
     <span class="en">Send Message</span><span class="de">Nachricht senden</span>
   </button>
+  <p id="form-success" style="display:none; margin-top: 1rem; color: green;">
+    <span class="en">Thank you! Your message has been sent.</span>
+    <span class="de">Danke! Ihre Nachricht wurde gesendet.</span>
+  </p>
 </form>
     <div class="contact-cols reveal">
       <div class="contact-col">
@@ -545,6 +545,20 @@ document.addEventListener('DOMContentLoaded', function() {
   const order = [0, 4, 1, 2, 3, 5];
   order.forEach(i => grid.appendChild(cards[i]));
 });
+</script>
+  <script>
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const data = new FormData(form);
+    await fetch("https://formspree.io/f/mreornvn", {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
+    });
+    form.reset();
+    document.getElementById("form-success").style.display = "block";
+  }
 </script>
 </body>
 </html>
