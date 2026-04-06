@@ -442,27 +442,33 @@ span.de{display:none}
       <span class="en">For bookings, press enquiries, or any other matter, please reach out below or contact Ilona's agent at opera4u.</span>
       <span class="de">Für Buchungen, Presseanfragen oder andere Anliegen kontaktieren Sie uns unten oder wenden Sie sich an Ilonas Agentur bei opera4u.</span>
     </p>
-    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-field">
-          <label><span class="en">Your Name</span><span class="de">Ihr Name</span></label>
-          <input type="text" required/>
-        </div>
-        <div class="form-field">
-          <label><span class="en">Email Address</span><span class="de">E-Mail-Adresse</span></label>
-          <input type="email" required/>
-        </div>
-      </div>
-      <div class="form-field">
-        <label><span class="en">Subject</span><span class="de">Betreff</span></label>
-        <input type="text"/>
-      </div>
-      <div class="form-field">
-        <label><span class="en">Message</span><span class="de">Nachricht</span></label>
-        <textarea></textarea>
-      </div>
-      <button type="submit" class="form-submit"><span class="en">Send Message</span><span class="de">Nachricht senden</span></button>
-    </form>
+    <form
+  class="contact-form reveal"
+  action="https://formspree.io/f/mreornvn"
+  method="POST"
+>
+  <div class="form-row">
+    <div class="form-field">
+      <label><span class="en">Your Name</span><span class="de">Ihr Name</span></label>
+      <input type="text" name="name" required/>
+    </div>
+    <div class="form-field">
+      <label><span class="en">Email Address</span><span class="de">E-Mail-Adresse</span></label>
+      <input type="email" name="email" required/>
+    </div>
+  </div>
+  <div class="form-field">
+    <label><span class="en">Subject</span><span class="de">Betreff</span></label>
+    <input type="text" name="subject"/>
+  </div>
+  <div class="form-field">
+    <label><span class="en">Message</span><span class="de">Nachricht</span></label>
+    <textarea name="message"></textarea>
+  </div>
+  <button type="submit" class="form-submit">
+    <span class="en">Send Message</span><span class="de">Nachricht senden</span>
+  </button>
+</form>
     <div class="contact-cols reveal">
       <div class="contact-col">
         <p class="clabel"><span class="en">Agent</span><span class="de">Agentur</span></p>
