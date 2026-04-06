@@ -531,6 +531,15 @@ document.querySelectorAll('.video-card').forEach(card => {
       window.open(link.href, '_blank');
     });
   }
-});</script>
+});
+  // Reorder video cards: Musetta, Pamina, Giulietta, Gilda, Susanna, Channel
+(function() {
+  const grid = document.querySelector('.video-grid');
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.video-card'));
+  const order = [0, 4, 1, 2, 3, 5]; // desired index order
+  order.forEach(i => grid.appendChild(cards[i]));
+})();
+</script>
 </body>
 </html>
